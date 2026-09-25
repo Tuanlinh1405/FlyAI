@@ -3,7 +3,7 @@ import { extractOrders } from './forecast-model.mjs'
 import { trainBestTimeSeries } from './boosting.mjs'
 import { explainWithGemini } from './gemini.mjs'
 
-const port = Number(process.env.API_PORT || 8787)
+const port = Number(process.env.PORT || process.env.API_PORT || 8787)
 const host = process.env.API_HOST || '127.0.0.1'
 const number = (value, fallback = 0) => Number.isFinite(Number(value)) ? Number(value) : fallback
 const minutes = value => { const [hour, minute] = String(value || '00:00').split(':').map(Number); return number(hour) * 60 + number(minute) }

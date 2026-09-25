@@ -5,7 +5,8 @@ function toBase64(buffer) {
 }
 
 export async function runMlForecast(file, assumptions) {
-  const response = await fetch('/api/ml/forecast', {
+  const apiBaseUrl = String(import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
+  const response = await fetch(`${apiBaseUrl}/api/ml/forecast`, {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ fileName: file.name, fileBase64: toBase64(await file.arrayBuffer()), assumptions }),
   })

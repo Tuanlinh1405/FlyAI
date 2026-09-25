@@ -5,13 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
+    "api": "node --env-file-if-exists=.env api/server.mjs",
+    "ml:setup": "python -m pip install -r requirements-ml.txt",
+    "test": "node --test",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {
     "lucide-react": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "read-excel-file": "^9.3.10"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "latest",
